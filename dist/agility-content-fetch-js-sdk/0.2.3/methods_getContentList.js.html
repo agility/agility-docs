@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>methods/getContentList.js - Documentation</title>
+
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav>
+    <li class="nav-link nav-home-link"><a href="index.html">Home</a></li><li class="nav-heading">Namespaces</li><li class="nav-heading"><span class="nav-item-type type-namespace">N</span><span class="nav-item-name"><a href="AgilityFetch.html">AgilityFetch</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="AgilityFetch.html#.getApi">getApi</a></span></li><li class="nav-heading"><span class="nav-item-type type-namespace">N</span><span class="nav-item-name"><a href="AgilityFetch.Client.html">Client</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="AgilityFetch.Client.html#.getContentItem">getContentItem</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="AgilityFetch.Client.html#.getContentList">getContentList</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="AgilityFetch.Client.html#.getPage">getPage</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="AgilityFetch.Client.html#.getSitemapFlat">getSitemapFlat</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="AgilityFetch.Client.html#.getSitemapNested">getSitemapNested</a></span></li><li class="nav-heading"><span class="nav-item-type type-namespace">N</span><span class="nav-item-name"><a href="AgilityFetch.Types.html">Types</a></span></li>
+</nav>
+
+<div id="main">
+    
+    <h1 class="page-title">methods/getContentList.js</h1>
+    
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import { buildRequestUrlPath, buildAuthHeader } from '../utils'
+
+/**
+ * Retrieves a list of content items by reference name.
+ * @memberof AgilityFetch.Client
+ * @param {Object} requestParams - The parameters for the API request.
+ * @param {string} requestParams.referenceName - The unique reference name of the content list you wish to retrieve in the specified language.
+ * @param {string} requestParams.languageCode - The language code of the content you want to retrieve.
+ * @param {number} [requestParams.take] - The maximum number of items to retrieve in this request. Default is **10**. Maximum allowed is **50**.
+ * @param {number} [requestParams.skip] - The number of items to skip from the list. Default is **0**. Used for implementing pagination.
+ * @param {number} [requestParams.sort] - The field to sort the results by. Example *fields.title* or *properties.created*. 
+ * @param {number} [requestParams.direction] - The direction to sort the results by. Default is **asc**. Valid values are **asc**, **desc**.
+ * @param {string} [requestParams.filter] - *Note: This parameter has not been implemented, but will be in a future version.*
+ * @returns {Promise&lt;AgilityFetch.Types.ContentList>} - Returns a list of content items.
+ * @example
+ * 
+ * import agility from '@agility/content-fetch'
+ * 
+ * const api = agility.getApi({
+ *   instanceID: '1234-1234',
+ *   accessToken: 'fEpTcRnWO3EahHbojDCeY3PwGwAzpw2gveDuPn2l0nuqFbQYVcWrQ+a3/DHcWgCgn7UL2tgbSOS0AqrEOiXkTg=='
+ * });
+ * 
+ * api.getContentList({
+ *     referenceName: 'posts',
+ *     languageCode: 'en-us',
+ *     take: 50,
+ *     skip: 0,
+ *     sort: 'properties.created',
+ *     direction: 'asc'
+ * })
+ * .then(function(contentList) {
+ *     console.log(contentList);
+ * })
+ * .catch(function(error) {
+ *     console.log(error);
+ * });
+*/
+
+
+function getContentList(requestParams) {
+
+    validateRequestParams(requestParams);
+
+    const req = {
+        url: `/list/${requestParams.referenceName}`,
+        method: 'get',
+        baseURL: buildRequestUrlPath(this.config, requestParams.languageCode),
+        headers: buildAuthHeader(this.config),
+        params:{}
+    };
+    
+    return this.makeRequest(req);   
+}
+
+function validateRequestParams(requestParams) {
+    if(!requestParams.languageCode) {
+        throw new TypeError('You must include a languageCode in your request params.')
+    }
+    else if(!requestParams.referenceName) {
+        //must have a referenceName
+        throw new TypeError('You must include a content referenceName in your request params.');
+    } else if(requestParams.take &amp;&amp; isNaN(requestParams.take)) {
+        //take parameter must be a number
+        throw new TypeError('Take parameter must be a number.')
+    } else if((requestParams.take || requestParams.take == 0)  &amp;&amp; !isNaN(requestParams.take) &amp;&amp; requestParams.take &lt; 1) {
+        //take parameter must be greater than 0
+        throw new TypeError('Take parameter must be greater than 0.');
+    } else if(requestParams.take &amp;&amp; !isNaN(requestParams.take) &amp;&amp; requestParams.take > 50) {
+        //take parameter cannot be greater than 50
+        throw new TypeError('Take parameter must be 50 or less.');
+    } else if(requestParams.skip &amp;&amp; isNaN(requestParams.skip)) {
+        //skip parameter must be a number
+        throw new TypeError('Skip parameter must be a number.');
+    } else if(requestParams.skip &amp;&amp; !isNaN(requestParams.skip) &amp;&amp; requestParams.skip &lt; 0) {
+        //skip parameter must be a number greater than 0
+        throw new TypeError('Skip parameter must be 0 or greater');
+    } else if (requestParams.direction &amp;&amp; (requestParams.direction !== 'desc' || requestParams.direction !== 'asc')){
+        //check if the request direction parameter is valid
+        throw new TypeError('Direction parameter must have a value of "asc" or "desc"');
+    } else {
+        return;
+    }
+}
+
+export default getContentList;</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<br class="clear">
+
+<footer>
+    Generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Thu Mar 28 2019 20:13:11 GMT+0000 (Coordinated Universal Time) using the Minami theme.
+</footer>
+
+<script>prettyPrint();</script>
+<script src="scripts/linenumber.js"></script>
+</body>
+</html>
