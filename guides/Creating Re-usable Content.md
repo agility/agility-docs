@@ -27,7 +27,7 @@ There are two ways to query your CMS data in Agility using the Content Fetch API
 
 *Pages* provide a way to manage the presentation layer for website. They are perfect for websites that are powered by Agility and have built-in page routing. They have lots of metadata that is specific to pages such as template, content zones, modules, title, url, seo information, tracking scripts and more.
 
-*Shared Content* provides an interface for to developers to query entire lists or retrieve specific items such as Articles, Blog Posts, Category Lists, etc. In other words, just the data.
+*Shared Content* provides an interface for developers to query entire lists or retrieve specific items such as Articles, Blog Posts, Category Lists, etc. In other words, just the data.
 
 The best way to share content with other sources is store your content in Agility's *Shared Content* area. Each content item/list is easily queryable by the Content Fetch API and it provides only the content you asked for. It makes no assumptions on how the content will be used or displayed. 
 
