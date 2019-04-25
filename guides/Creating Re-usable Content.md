@@ -1,9 +1,9 @@
 # Make your Content Safe for Re-use
 In today's online eco-system, the content you create isn't always just for your website. You may have content that appears on both on your website and your iOS/Android app or you may want to use a list of content from an Agility instance on some other external website all together.
 
-![Thinking...](https://media.giphy.com/media/kPtv3UIPrv36cjxqLs/giphy.gif)
-
 The way in which you architect and manage your content can affect how this works.
+
+![Thinking...](https://media.giphy.com/media/kPtv3UIPrv36cjxqLs/giphy.gif)
 
 Creating your content with this in mind can set you up for success when you are ready to syndicate your content to channels other than your website.
 
