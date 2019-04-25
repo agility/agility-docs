@@ -18,6 +18,7 @@ Content, Module, and Page Template Definitions can be copied between instances o
 
 Code for your modules can be copied between websites as well. This is up to the developer. With the advent of modern package managers such as Nuget and NPM, this has become much easier implement and maintain.
 
+
 ## Benefits of Sharing Common Functionality
 Having the same modules availble to your editors across web properties will not only increase their familiarity with your CMS instance(s), it will also make them more productive.
 
