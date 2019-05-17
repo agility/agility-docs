@@ -1,5 +1,5 @@
 # Why You Should Have a Content Workflow
-Content isn't just the heart of your brand and digital strategy. It can power not only websites, but mobile apps, digital signage, IoT devices, and much more. 
+Content can power not only websites, but mobile apps, digital signage, IoT devices, and much more. 
 
 It's more important than ever to ensure what you are publishing is consistent and meets your business requirements. 
 
