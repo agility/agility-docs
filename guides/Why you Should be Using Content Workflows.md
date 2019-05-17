@@ -6,10 +6,6 @@ It's more important than ever to ensure what you are publishing is consistent an
 **Content Workflows** aren't limited to just approving content before it gets published. Whether you want to integrate your content with other services, or automate approvals, they can empower your team, increase the quality of content, save time and make you more productive.
 
 
-In the developer world, you wouldn't release code into production before it is tested and approved. Following a process to review code reduces the amount of errors, provides for consistent design and implementation, improves team cohesion, and provides opportunities for teaching and sharing. 
-
-These processes are entrenched in dev ops, but why not bring those same benefits to your content team?
-
 ## Benefits
 Implementing **Content Workflows** can provide the following benefits:
 - Reduce content errors
