@@ -4,7 +4,7 @@
 
 HTML areas in the CMS support `<script>` and `<style>` tags. But, to what extent should you be using these?
 
-A successful CMS implementation should empower your editors and keep them focused on creating content rather than finicking with presentation layer. They shouldn't be worrying about adding the right *Styles* and *Scripts* to make their content look right.
+A successful CMS implementation should empower your editors and keep them focused on creating content rather than finicking with the presentation layer. They shouldn't be worrying about adding the right *Styles* and *Scripts* to make their content look right.
 
 ## When is it Okay to Inject Scripts/Styles in your Rich Text Area?
 There are few cases where this is recommended, but we also realize that there are times when you need to make quick changes without having access to the website source code or ability to do releases. These should be few and far between, and should be converted to a *Module* at the earliest opportunity by a developer.
