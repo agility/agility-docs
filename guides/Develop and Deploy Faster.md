@@ -21,7 +21,7 @@ A typical cycle for a new feature looks something like this:
 ### Do you have enough Development capacity?
 If you have only specialized developers that can work within the website code base, this can be an obvious issue. 
 
-The goal should be to get as many developers as possible to be able to work on your website - not just backend or full-stack developers. Allowing frontend developers to be able to seamlessly contribute to your website codebase is critical. 
+The goal should be to get as many developers as possible to be able to work on your website - not just backend or full-stack developers. Allowing frontend developers to be able to seamlessly contribute to your website codebase is critical to supporting the business's needs. 
 
 #### What if the development environment requires an OS with certain software dependancies or security requirements?
 Consider utilizing *virutalization* and *containers* so that all of your developers can work on the same configuration, regardless of their client OS/configuration.
@@ -48,18 +48,32 @@ A combination of unit and integration tests can go a long way in speeding up you
 Using tools such as *Selenium* can allow you to automate tests across all sorts browsers, devices, and OSs.
 
 #### How long does it take to QA your site?
-It's important to get a benchmark for how long this takes. Based on this, you can identify how often you can reasonably deploy to production.
+Record how long this takes. Everything from automated tests to manual regression testing, it's important to get a benchmark. Based on this, you can identify how often you can reasonably deploy to production with confidence.
 
-### What is your deployment process to UAT/Production?
-Ideally, developers who are checking in code changes should not have to worry about how or when to deploy their changes. It is recommended to have another process for this. This is one area where you want to actually have a closely controlled bottleneck. Afterall, you don't want users pushing to production without your process being followed.
+
+#### Who deploys to UAT/Production?
+Developers who are checking in code changes should not have to worry about how or when to deploy their changes. This can be yet another barrier to having them contribute to your website. 
+
+Whether you have a dedicated role for this, or an automated workflow, deployments should be centrally managed. This is one area where you want to actually have a bottleneck. Afterall, you don't want users pushing to environments without your process being followed.
+
 
 #### How long does it take to deploy?
-If you are manually copying files between one or many servers, this is something you'll want to address. Deploying a site should be easy and the steps should be automated. Not only will this speed up deployment, but will also result in more consistent deployments.
+If you are manually copying files between one or many servers, this is something you'll want to address. Deploying a site should be easy, and repeatable. Look for opportunities to automate steps. Not only will this speed up deployment, but will also result make them more consistent.
 
-## Implement Continuous Delivery
+#### How often do you deploy to Production?
+Deploying early and often will limit the scope of changes per release, reduce issues in source control merging, speed up testing, decrease stress across your team by avoiding a monolithic "release day", and be more responsive to your business's needs.
 
 
-# TODO
+
+
+## Designing your Devops Pipeline
+A devops pipeline is a set of (often automated) workflows, tools and gated processes around development, testing, and releases to help your team be more productive. 
+
+When designing your pipeline, take into account any bottlenecks you have identified in your current development cycle, establish what you are trying to achieve and set your measures of success. For example, if your goal is to speed up the time it takes to QA your website by using more automated tools, your measure of success could be to reduce QA time by 25%. Shooting for a *finish line* will help you keep your team focused and ensure your efforts have quantifiable results.
+
+## Continuous Integration
+
+
 
 
 
