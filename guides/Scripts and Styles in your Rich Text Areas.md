@@ -51,6 +51,13 @@ Then, in code on your website, use a template engine (`.cshtml`, `.jsx`, etc.) t
 ### Who can Create a Module?
 If you can write HTML/CSS/JS, then you likely have the skills to be able to create a *Module* as well.
 
+## Preventing Scripts and Styles in Rich Text Areas
+To ensure that your editors and developers are following best practices, consider implementing these ways to validate your content:
+
+1. Use *Content Worklow* so only approved content (without `<style>` and `<scripts>`) can be published.
+2. Use the `onBeforeSave` JavaScript hook within your Content/Module definitions input form script to validate your content before it is allowed to be saved.
+3. Consider creating your own custom *Rich Text Area* field using *Custom Field Types* that does not allow editors to use `<script>` or `<style>` tags.
+
 **Tips:**
 - Avoid development bottlnecks by involving more people in your dev ops
 - Setup your website code in a way that empowers frontend developers to be able to contribute
