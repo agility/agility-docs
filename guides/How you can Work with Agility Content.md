@@ -1,4 +1,4 @@
-# How you can Build a Site with Agility
+# How you can work with Agility Content
 Agility is a headless CMS with traditional capabilities. There are two ways to build websites that integrate with your Agility CMS instance. Each have their own benefits, and  special care should be taken to choose which path is right for your project.
 
 1. Use the **Sync Model** - Have published content *pushed* directly to your web server.
