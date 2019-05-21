@@ -1,5 +1,5 @@
 # Sharing Common Functionality across Properties
-Agility’s page, module, and content structure allow you to build a bespoke content schema that addresses your specific sites’ requirements. Usually this means that each Agility instance varies in terms of what modules and functionality are available. 
+Agility’s page, module, and content structure allow you to build a bespoke content schema that addresses your specific sites’ requirements. Usually, this means that each Agility instance varies in terms of what modules and functionality are available. 
 
 This is all great, but what happens when you have another website with similar requirements and you want to re-use functionality that was built for an existing site? Do you need to re-create the module from scratch just for this new website, or with proper planning, can we design modules to be website agnostic? 
 
@@ -16,18 +16,18 @@ Modules are comprised of an input form of *fields* that editors use to create an
 
 Content, Module, and Page Template Definitions can be copied between instances or re-used across channels within the same instance, allowing you to keep a consistent content schema across web properties. This is all done within the Agility Content Manager.
 
-Code for your modules can be copied between websites as well. This is up to the developer. With the advent of modern package managers such as Nuget and NPM, this has become much easier implement and maintain.
+Code for your modules can be copied between websites as well. This is up to the developer. With the advent of modern package managers such as Nuget and NPM, this has become much easier to implement and maintain.
 
 
 ## Benefits of Sharing Common Functionality
-Having the same modules availble to your editors across web properties will not only increase their familiarity with your CMS instance(s), it will also make them more productive.
+Having the same modules available to your editors across web properties will not only increase their familiarity with your CMS instance(s), it will also make them more productive.
 
-For developers, this means you can likely limit the amount of modules you develop on a regular basis, as you re-use existing modules with minimal effort. This often leads to an increase in quality as well as developers and QA can spending more time testing and enhancing features, all while increasing the value of these modules across your properties.
+For developers, this means you can likely limit the number of modules you develop on a regular basis, as you re-use existing modules with minimal effort. This often leads to an increase in quality as well as developers and QA can spending more time testing and enhancing features, all while increasing the value of these modules across your properties.
 
 ![YES!](https://media.giphy.com/media/hZj44bR9FVI3K/giphy.gif)
 
 ## Guiding Principals
-Whether you have multiple Agility instances, or an instance with multiple channels, the general philosophy is the same. 
+Whether you have multiple Agility instances or an instance with multiple channels, the general philosophy is the same. 
 
 1. You have Modules that have the same fields across all web properties and can be added to a page.
 
