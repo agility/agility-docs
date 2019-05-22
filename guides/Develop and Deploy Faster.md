@@ -12,6 +12,7 @@ Some folks even deploy to production multiple times a day!
 Bottlenecks can occur throughout the development cycle. The key to enabling faster development and deployment is to find and address these in a reasonable way.
 
 A typical cycle for a new feature looks something like this:
+
 1. Development/implementation
 2. Quality Assurance and testing
 3. Deployment to *UAT*
@@ -105,6 +106,7 @@ Once the release is approved of production, the deployment to production should 
 Every code change should follow this process so that any build can be released with the click of a button.
 
 ## Recommended Tools
+
 - **Source Control**: GitHub, GitLab, Azure DevOps, Atlassian
 - **CI/D Tools**: Azure DevOps, GitLab, Atlassian, Jenkins
 - **IDE**: VS Code, Visual Studio, Sublime Text

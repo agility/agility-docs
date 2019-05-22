@@ -3,7 +3,7 @@ In today's online ecosystem, the content you create isn't always just for your w
 
 The way in which you architect and manage your content can affect how this works.
 
-![Thinking...](https://media.giphy.com/media/kPtv3UIPrv36cjxqLs/giphy.gif)
+<!-- ![Thinking...](https://media.giphy.com/media/kPtv3UIPrv36cjxqLs/giphy.gif) -->
 
 Creating your content with this in mind can set you up for success when you are ready to syndicate your content to channels other than your website.
 
@@ -11,6 +11,7 @@ Creating your content with this in mind can set you up for success when you are 
 Everything from Pages to Content in Agility is accessible via the Agility Content Fetch REST API. This enables you to retrieve Agility CMS content using any programming language. You can even pull content from multiple instances.
 
 Common Uses:
+
 - Mobile app (iOS, Android)
 - Digital signage
 - IoT devices
@@ -19,7 +20,7 @@ Common Uses:
 
 Why create duplicate content when you can create, manage, and publish content from one central location?
 
-![Central Repository](https://media.giphy.com/media/N1uZlj3OUEDxC/giphy.gif)
+<!-- ![Central Repository](https://media.giphy.com/media/N1uZlj3OUEDxC/giphy.gif) -->
 
 ## Content Architecture - Pages vs Shared Content
 There are two ways to query your CMS data in Agility using the Content Fetch API. You can query *Pages* or *Shared Content*.
@@ -33,11 +34,12 @@ The best way to share content with other sources is to store your content in Agi
 ## Keep your Content Clean
 Because your content could be used on platforms other than a website, you can't rely on the device being able to understand or render HTML/CSS/JS. It's important to keep your content clean and maintain a clear separation of concerns between the content and how it is presented.
 
-![Keep it Clean](https://media.giphy.com/media/RpQWp3Lw1f14I/giphy.gif)
+<!-- ![Keep it Clean](https://media.giphy.com/media/RpQWp3Lw1f14I/giphy.gif) -->
 
 While iOS and Android do support some basic HTML elements, it is recommended to limit Rich Text Area editor usage and features for managing content that will be shared across other non-web platforms.
 
 Some ways to limit HTML/CSS/JS usage:
+
 1. Use *Long Text* fields as opposed to *HTML* fields in your Content Definitions. You could allow usage of Markdown for formatting in absence of HTML.
 
 2. Implement a custom validation of your *HTML* fields to ensure only approved elements are being used.
@@ -50,6 +52,7 @@ Some ways to limit HTML/CSS/JS usage:
 
 
 ## Guiding Principals
+
 1. Use the Agility Content Fetch REST API.
 
 2. Store content in *Shared Content*.

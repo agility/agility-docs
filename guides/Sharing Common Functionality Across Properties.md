@@ -3,14 +3,14 @@ Agility’s page, module, and content structure allow you to build a bespoke con
 
 This is all great, but what happens when you have another website with similar requirements and you want to re-use functionality that was built for an existing site? Do you need to re-create the module from scratch just for this new website, or with proper planning, can we design modules to be website agnostic? 
 
-![We can do that!](https://media.giphy.com/media/8FuMcd7vGO6dRKScnE/giphy-downsized-large.gif)
+<!-- ![We can do that!](https://media.giphy.com/media/8FuMcd7vGO6dRKScnE/giphy-downsized-large.gif) -->
 
 ## How
 Generally speaking, a web page in Agility is composed of one or many Modules that encapsulate functionality.
 
 Therefore, to share common functionality across web properties, you need to make those same Modules available for use where you need them.
 
-![How](https://media.giphy.com/media/kQOxxwjjuTB7O/giphy.gif)
+<!-- ![How](https://media.giphy.com/media/kQOxxwjjuTB7O/giphy.gif) -->
 
 Modules are comprised of an input form of *fields* that editors use to create and manage content. Modules also have corresponding *code* that gets executed when the Module is rendered on a page. All you need to do is ensure that each web property has the same module, and corresponding code to be executed.
 
@@ -24,7 +24,7 @@ Having the same modules available to your editors across web properties will not
 
 For developers, this means you can likely limit the number of modules you develop on a regular basis, as you re-use existing modules with minimal effort. This often leads to an increase in quality as well as developers and QA can spending more time testing and enhancing features, all while increasing the value of these modules across your properties.
 
-![YES!](https://media.giphy.com/media/hZj44bR9FVI3K/giphy.gif)
+<!-- ![YES!](https://media.giphy.com/media/hZj44bR9FVI3K/giphy.gif) -->
 
 ## Guiding Principals
 Whether you have multiple Agility instances or an instance with multiple channels, the general philosophy is the same. 

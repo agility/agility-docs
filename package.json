@@ -1,0 +1,24 @@
+{
+  "name": "@agility/agility-docs",
+  "version": "1.0.0",
+  "description": "Facilitates the publishing of online documents supporting Agility",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "guides-to-pdf": "node convertMarkdownToDocx.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/agility/agility-docs.git"
+  },
+  "author": "James Vidler",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/agility/agility-docs/issues"
+  },
+  "homepage": "https://github.com/agility/agility-docs#readme",
+  "devDependencies": {
+    "markdown-pdf": "^9.0.0",
+    "node-pandoc": "^0.3.0"
+  }
+}
