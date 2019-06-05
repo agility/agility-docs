@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Home - Documentation</title>
+
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav>
+    <li class="nav-link nav-home-link"><a href="index.html">Home</a></li><li class="nav-heading">Namespaces</li><li class="nav-heading"><span class="nav-item-type type-namespace">N</span><span class="nav-item-name"><a href="AgilityFetch.html">AgilityFetch</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="AgilityFetch.html#.getApi">getApi</a></span></li><li class="nav-heading"><span class="nav-item-type type-namespace">N</span><span class="nav-item-name"><a href="AgilityFetch.Client.html">Client</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="AgilityFetch.Client.html#.getContentItem">getContentItem</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="AgilityFetch.Client.html#.getContentList">getContentList</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="AgilityFetch.Client.html#.getPage">getPage</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="AgilityFetch.Client.html#.getSitemapFlat">getSitemapFlat</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="AgilityFetch.Client.html#.getSitemapNested">getSitemapNested</a></span></li><li class="nav-heading"><span class="nav-item-type type-namespace">N</span><span class="nav-item-name"><a href="AgilityFetch.Types.html">Types</a></span></li>
+</nav>
+
+<div id="main">
+    
+
+    
+
+
+
+    
+
+
+
+
+
+
+
+
+
+    
+
+
+    <section class="readme">
+        <article><p><a href="https://agility.visualstudio.com/Agility%20CMS/_build/latest?definitionId=58&amp;branchName=dev"><img src="https://agility.visualstudio.com/Agility%20CMS/_apis/build/status/Agility%20Content%20Fetch%20JS%20SDK%20-%20Dev?branchName=dev" alt="Build Status"></a>
+<a href="https://app.netlify.com/sites/agilitydocs/deploys"><img src="https://api.netlify.com/api/v1/badges/c45f5d6e-923b-4019-820e-826e6185017d/deploy-status" alt="Netlify Status"></a></p>
+<h1>Agility Content Fetch JS SDK</h1><p>This is the official JavaScript library for accessing live and preview content from your <a href="https://agilitycms.com">Agility</a> CMS instance. </p>
+<p>You can use this in both node and browser based JS apps.</p>
+<h2>Features</h2><ul>
+<li>Queries the high-availability, CDN backed Agility Fetch REST API</li>
+<li>Get a sitemap for a given channel</li>
+<li>Get a page, including its content zones, modules, and their content</li>
+<li>Get a content item</li>
+<li>Query a content list</li>
+<li>Optional in-memory caching</li>
+</ul>
+<h2>Getting Started</h2><p>In order to use this sdk, you'll need to install the script and you'll also need to authenticate your requests.</p>
+<h3>Prerequisites</h3><p>You must have access to an Agility instance to retrieve the <em>instanceID</em> and generate your <em>apiKey</em>. Or, you must have these values provided to you.</p>
+<h3>Installation</h3><p>Install it using <strong>npm</strong> (recommended):</p>
+<pre class="prettyprint source"><code>npm install @agility/content-fetch</code></pre><p>If necessary, you can also reference a standalone package that can be used in a browser using a traditional <strong>script</strong> tag. In this case, the sdk can be accessed using a global variable by name of <code>agility</code>:</p>
+<pre class="prettyprint source lang-html"><code>&lt;!-- Use a specific version (i.e. 0.1.4) -->
+&lt;script type=&quot;text/javascript&quot; src=&quot;https://unpkg.com/@agility/content-fetch@0.2.4/dist/agility-content-fetch.browser.js&quot;>&lt;/script>
+
+&lt;!-- Or, Use the latest version -->
+&lt;script type=&quot;text/javascript&quot; src=&quot;https://unpkg.com/@agility/content-fetch@latest/dist/agility-content-fetch.browser.js&quot;>&lt;/script></code></pre><h3>Making a Request</h3><pre class="prettyprint source lang-javascript"><code>import agility from '@agility/content-fetch'
+
+//initialize the api client
+const api = agility.getApi({
+  instanceID: '191309ca-e675-4be2-bb29-351879528707',
+  accessToken: 'aGd13M.fa30c36e553a36f871860407e902da9a7375322457acd6bcda038e60af699411'
+});
+
+//make the request: get a content item with the ID '22'
+api.getContentItem({
+    contentID: 22,
+    languageCode: 'en-us'
+})
+.then(function(contentItem) {
+    //on success
+    console.log(contentItem);
+})
+.catch(function(error) {
+    //on error
+    console.log(error);
+});</code></pre><h2>Documentation</h2><p>Full documentation for this sdk can be found in our <a href="https://agilitydocs.netlify.com/agility-content-fetch-js-sdk/">Agility Fetch JS SDK Reference Doc</a>.</p>
+<h2>Tutorials</h2><p>Coming soon...</p>
+<h2>Contributing</h2><p>If you would like to contribute to this SDK, you can fork the repository and submit a pull request. We'd love to include your updates.</p>
+<h3>Running the Tests</h3><p>An essential part of contributing to this SDK is adding and running unit tests to ensure the stability of the project.</p>
+<pre class="prettyprint source"><code>> npm run test</code></pre></article>
+    </section>
+
+
+
+
+
+
+</div>
+
+<br class="clear">
+
+<footer>
+    Generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Wed Jun 05 2019 15:46:12 GMT+0000 (Coordinated Universal Time) using the Minami theme.
+</footer>
+
+<script>prettyPrint();</script>
+<script src="scripts/linenumber.js"></script>
+</body>
+</html>
