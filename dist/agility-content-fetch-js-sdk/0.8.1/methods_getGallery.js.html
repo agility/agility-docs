@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>methods/getGallery.js - Documentation</title>
+
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav>
+    <li class="nav-link nav-home-link"><a href="index.html">Home</a></li><li class="nav-heading">Namespaces</li><li class="nav-heading"><span class="nav-item-type type-namespace">N</span><span class="nav-item-name"><a href="AgilityFetch.html">AgilityFetch</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="AgilityFetch.html#.getApi">getApi</a></span></li><li class="nav-heading"><span class="nav-item-type type-namespace">N</span><span class="nav-item-name"><a href="AgilityFetch.Client.html">Client</a></span></li><li class="nav-heading"><span class="nav-item-type type-namespace">N</span><span class="nav-item-name"><a href="AgilityFetch.Client.Content.html">Content</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="AgilityFetch.Client.Content.html#.getContentItem">getContentItem</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="AgilityFetch.Client.Content.html#.getContentList">getContentList</a></span></li><li class="nav-heading"><span class="nav-item-type type-namespace">N</span><span class="nav-item-name"><a href="AgilityFetch.Client.Media.html">Media</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="AgilityFetch.Client.Media.html#.getGallery">getGallery</a></span></li><li class="nav-heading"><span class="nav-item-type type-namespace">N</span><span class="nav-item-name"><a href="AgilityFetch.Client.Pages.html">Pages</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="AgilityFetch.Client.Pages.html#.getPage">getPage</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="AgilityFetch.Client.Pages.html#.getSitemapFlat">getSitemapFlat</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="AgilityFetch.Client.Pages.html#.getSitemapNested">getSitemapNested</a></span></li><li class="nav-heading"><span class="nav-item-type type-namespace">N</span><span class="nav-item-name"><a href="AgilityFetch.Client.Sync.html">Sync</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="AgilityFetch.Client.Sync.html#.getSyncContent">getSyncContent</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="AgilityFetch.Client.Sync.html#.getSyncPages">getSyncPages</a></span></li><li class="nav-heading"><span class="nav-item-type type-namespace">N</span><span class="nav-item-name"><a href="AgilityFetch.Types.html">Types</a></span></li>
+</nav>
+
+<div id="main">
+    
+    <h1 class="page-title">methods/getGallery.js</h1>
+    
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import { buildRequestUrlPath, buildAuthHeader } from '../utils'
+
+/**
+ * Gets the details of a gallery by their Gallery ID.
+ * @memberof AgilityFetch.Client.Media
+ * @param {Object} requestParams - The parameters for the API request.
+ * @param {number} requestParams.galleryID - The galleryID of the requested item in this language.
+ * @returns {Promise&lt;AgilityFetch.Types.Gallery>} - Returns a gallery object.
+ * @example
+ * 
+ * import agility from '@agility/content-fetch'
+ * 
+ * const api = agility.getApi({
+ *   guid: 'ade6cf3c',
+ *   apiKey: 'defaultlive.201ffdd0841cacad5bb647e76547e918b0c9ecdb8b5ddb3cf92e9a79b03623cb',
+ * });
+ * 
+ * api.getGallery({
+ *     galleryID: 22
+ * })
+ * .then(function(gallery) {
+ *     console.log(gallery);
+ * })
+ * .catch(function(error) {
+ *     console.log(error);
+ * });
+ * 
+*/
+function getGallery(requestParams) {
+
+    validateRequestParams(requestParams);
+
+    //merge default params with request params
+    requestParams = {...defaultParams, ...requestParams};
+
+    const req = {
+        url: `/${requestParams.galleryID}`,
+        method: 'get',
+        baseURL: buildRequestUrlPath(this.config, 'gallery'),
+        headers: buildAuthHeader(this.config),
+        params:{}
+    };
+    
+    return this.makeRequest(req);
+}
+
+function validateRequestParams(requestParams) {
+    if(!requestParams.galleryID) {
+        throw new TypeError('You must include a galleryID number in your request params.');
+    } else {
+        return;
+    }
+}
+
+const defaultParams = {
+    contentLinkDepth: 1
+}
+
+export default getGallery;</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<br class="clear">
+
+<footer>
+    Generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.3</a> on Mon Feb 03 2020 19:27:40 GMT+0000 (Coordinated Universal Time) using the Minami theme.
+</footer>
+
+<script>prettyPrint();</script>
+<script src="scripts/linenumber.js"></script>
+</body>
+</html>
