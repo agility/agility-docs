@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>methods/content/declineContent.js - Documentation</title>
+
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav>
+    <li class="nav-link nav-home-link"><a href="index.html">Home</a></li><li class="nav-heading">Namespaces</li><li class="nav-heading"><span class="nav-item-type type-namespace">N</span><span class="nav-item-name"><a href="AgilityManagement.html">AgilityManagement</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="AgilityManagement.html#.getApi">getApi</a></span></li><li class="nav-heading"><span class="nav-item-type type-namespace">N</span><span class="nav-item-name"><a href="AgilityManagement.Client.html">Client</a></span></li><li class="nav-heading"><span class="nav-item-type type-namespace">N</span><span class="nav-item-name"><a href="AgilityManagement.Client.Content.html">Content</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="AgilityManagement.Client.Content.html#.approveContent">approveContent</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="AgilityManagement.Client.Content.html#.declineContent">declineContent</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="AgilityManagement.Client.Content.html#.deleteContent">deleteContent</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="AgilityManagement.Client.Content.html#.publishContent">publishContent</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="AgilityManagement.Client.Content.html#.requestApproval">requestApproval</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="AgilityManagement.Client.Content.html#.saveContentItem">saveContentItem</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="AgilityManagement.Client.Content.html#.unpublishContent">unpublishContent</a></span></li><li class="nav-heading"><span class="nav-item-type type-namespace">N</span><span class="nav-item-name"><a href="AgilityManagement.Client.Media.html">Media</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="AgilityManagement.Client.Media.html#.getMediaID">getMediaID</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="AgilityManagement.Client.Media.html#.uploadMedia">uploadMedia</a></span></li><li class="nav-heading"><span class="nav-item-type type-namespace">N</span><span class="nav-item-name"><a href="AgilityManagement.Client.Pages.html">Pages</a></span></li><li class="nav-heading"><span class="nav-item-type type-namespace">N</span><span class="nav-item-name"><a href="AgilityManagement.Types.html">Types</a></span></li>
+</nav>
+
+<div id="main">
+    
+    <h1 class="page-title">methods/content/declineContent.js</h1>
+    
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import { buildAPIUrl, buildAuthHeader } from '../../utils'
+
+/**
+ * Decline a given content item.
+ * @memberof AgilityManagement.Client.Content
+ * @param {Object} requestParams - The paramaters for the API request.
+ * @param {number} requestParams.contentID - The contentID of the item to approve.
+ * @param {string} requestParams.languageCode - The language code of the content you want to approve.
+ * @returns {Promise&lt;number>} - Returns the contentID.
+ * @example
+ *
+ * import agilityMgmt from '@agility/content-management'
+ *
+ * #Create a new instance API client
+ * const api = agilityMgmt.getApi({
+ *   location: 'MyLocation',
+ *   websiteName: 'MyWebsiteName',
+ *   securityKey: 'MySecurityKey'
+ * });
+ * 
+ * #Set the contentID and language code of content you want to decline
+ * let contentID = contentIDToWorkOn;
+ * let languageCode = "en-us";
+ * 
+ * api.declineContent({
+ *  contentID,
+ *  languageCode
+ * })
+ * .then(function(contentID) {
+ *  #check contentID is greater > 0 for success
+ * })
+ * .catch(function(error) {
+ *  #handle error
+ * });
+ *
+*/
+function declineContent(requestParams) {
+
+	validateRequestParams(requestParams);
+
+	const args = {
+		"contentID": requestParams.contentID,
+		"languageCode": requestParams.languageCode,
+	}
+
+	const methodName = "DeclineContent";
+
+	const data = ``
+
+    const req = {
+        url: buildAPIUrl({methodName, args}),
+        method: 'post',
+        baseURL: this.config.baseURL,
+        headers: buildAuthHeader({config:this.config, methodName, args}),
+        data: data
+    };
+
+    return this.makeRequest(req);
+}
+
+function validateRequestParams(requestParams) {
+    if(!requestParams.languageCode) {
+		throw new TypeError('You must include a languageCode in your request params.')
+	} else if(!requestParams.contentID || !(requestParams.contentID > 0)) {
+		throw new TypeError('You must include a contentID greater than 0 your request params.');
+	} else {
+        return;
+    }
+}
+
+
+export default declineContent;</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<br class="clear">
+
+<footer>
+    Generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.4</a> on Thu May 07 2020 17:33:56 GMT+0000 (Coordinated Universal Time) using the Minami theme.
+</footer>
+
+<script>prettyPrint();</script>
+<script src="scripts/linenumber.js"></script>
+</body>
+</html>
